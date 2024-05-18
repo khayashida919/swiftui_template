@@ -12,35 +12,42 @@ struct Login: View {
                 Image("SwiftUI")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 320)
+                    .frame(height: 240)
                 
-                TextField("ID", text: $observer.userId)
-                    .textFieldStyle(RoundedTextFieldStyle())
-                    .font(.headline)
-                    .focused($isFocus)
-                
-                Spacer()
-                    .frame(height: 32)
-                
-                SecureField("パスワード", text: $observer.password)
-                    .textFieldStyle(RoundedTextFieldStyle())
-                    .font(.headline)
-                    .focused($isFocus)
-                
-                Spacer()
-                    .frame(height: 48)
-                
-                Button(action: login, label: {
-                    Text("ログイン")
+                VStack {
+                    TextField("ID", text: $observer.userId)
+                        .textFieldStyle(RoundedTextFieldStyle())
                         .font(.headline)
-                        .frame(maxWidth: .infinity, minHeight: 40)
-                })
-                .buttonStyle(.borderedProminent)
+                        .focused($isFocus)
+                    
+                    Spacer()
+                        .frame(height: 32)
+                    
+                    SecureField("パスワード", text: $observer.password)
+                        .textFieldStyle(RoundedTextFieldStyle())
+                        .font(.headline)
+                        .focused($isFocus)
+                    
+                    Spacer()
+                        .frame(height: 52)
+                    
+                    Button(action: login, label: {
+                        Text("ログイン")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, minHeight: 40)
+                    })
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 48)
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
                 
                 Spacer()
             }
-            .padding(32)
+            .padding(24)
             .alert(observer.alert)
+            .toolbarBackground(.hidden, for: .navigationBar)
             .toolbar {
                 ToolbarItem {
                     Button {
@@ -51,6 +58,7 @@ struct Login: View {
                 }
             }
         }
+        .background(Color(UIColor.systemGroupedBackground))
     }
     
     private func login() {

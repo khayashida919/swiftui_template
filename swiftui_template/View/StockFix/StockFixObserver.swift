@@ -17,7 +17,7 @@ final class StockFixObserver: ObservableObject {
     }
     
     struct Item: Identifiable {
-        var id = UUID()
+        let id = UUID()
         let key: Int
         var isScan = false
         var count = 0

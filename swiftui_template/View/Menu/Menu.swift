@@ -17,7 +17,7 @@ struct Menu: View {
                                 .font(.subheadline)
                                 .opacity(0.5)
                             
-                            Text(menu.rawValue)
+                            Text(menu.title)
                                 .font(.largeTitle)
                                 .bold()
                         }
@@ -35,7 +35,7 @@ struct Menu: View {
         }
         .background(Color(UIColor.systemGroupedBackground))
 //        .navigationBarBackButtonHidden()
-        .navigationTitle(Navigation.Path.menu.rawValue)
+        .navigationTitle(Navigation.Path.menu.title)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Text("テスト太郎")

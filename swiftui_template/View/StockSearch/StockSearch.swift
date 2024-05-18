@@ -14,7 +14,7 @@ struct StockSearch: View {
                 
             case .item(let item):
                 Button(action: {
-                    navigation.path.append(.stockDetail)
+                    navigation.path.append(.stockDetail(item.name))
                 }, label: {
                     VStack(alignment: .leading) {
                         Text(item.name + "22547456")
@@ -25,7 +25,7 @@ struct StockSearch: View {
             }
         }
         .listStyle(.grouped)
-        .navigationTitle(Navigation.Path.stockSearch.rawValue)
+        .navigationTitle(Navigation.Path.stockSearch.title)
         .navigationBarTitleDisplayMode(.large)
         .searchable(text: $observer.searchText, placement: .navigationBarDrawer(displayMode: .always))
         .searchSuggestions {

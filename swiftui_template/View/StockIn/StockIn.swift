@@ -28,16 +28,14 @@ struct StockIn: View {
                 .buttonStyle(.borderedProminent)
             }
         }
-        .navigationTitle(Navigation.Path.stockIn.rawValue)
+        .navigationTitle(Navigation.Path.stockIn.title)
     }
     
     private func complete() {
-        print(navigation.path)
         Task {
             navigation.isLoading = true
-            try await Task.sleep(for: .seconds(2))
+            await observer.complete()
             navigation.isLoading = false
-            try await Task.sleep(for: .seconds(2))
             navigation.isSuccessAlert = true
         }
     }

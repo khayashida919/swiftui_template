@@ -6,8 +6,12 @@ final class StockInObserver: ObservableObject {
     
     @Published var alert = AlertContent()
     
-    func complete() {
-        
+    func complete() async {
+        do {
+            try await Task.sleep(for: .seconds(2))
+        } catch {
+            alert.showOk(title: error.localizedDescription)
+        }
     }
     
     struct Item: Identifiable {

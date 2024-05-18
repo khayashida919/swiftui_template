@@ -28,7 +28,7 @@ struct StockFix: View {
                 .buttonStyle(.borderedProminent)
             }
         }
-        .navigationTitle(Navigation.Path.stockFix.rawValue)
+        .navigationTitle(Navigation.Path.stockFix.title)
     }
 }
 

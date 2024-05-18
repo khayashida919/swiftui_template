@@ -10,7 +10,7 @@ struct Setting: View {
                 Text("1.0.0")
             }
         }
-        .navigationTitle(Navigation.Path.setting.rawValue)
+        .navigationTitle(Navigation.Path.setting.title)
     }
 }
 
